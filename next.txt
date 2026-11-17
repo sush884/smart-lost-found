@@ -1,0 +1,124 @@
+
+================================================================================
+SMART LOST & FOUND INTELLIGENCE SYSTEM
+ACTION GUIDE: WHAT TO DO NEXT
+================================================================================
+
+1. LIVE APPLICATION STATUS
+--------------------------------------------------------------------------------
+Both servers are currently running and ready to test on your machine:
+- Frontend Web App:     http://localhost:5173
+- Backend REST API:     http://localhost:5000/api
+- Health Telemetry:     http://localhost:5000/api/health
+
+To start them manually in future sessions from the project root:
+- Backend:   npm run server:start
+- Frontend:  npm run client:dev
+- Tests:     npm run test
+
+
+2. STEP-BY-STEP END-TO-END DEMONSTRATION WALKTHROUGH
+--------------------------------------------------------------------------------
+Follow these exact steps in your browser (http://localhost:5173):
+
+STEP 1: EXPLORE 3D HERO & CAMPUS RADAR
+1. Open http://localhost:5173 in Chrome or Edge.
+2. Observe the interactive 3D canvas featuring floating campus belongings 
+   (laptop, phone, keys, watch, backpack, notebook) with real-time lighting.
+3. Click "Browse Items" in the navbar, then click "View Campus Map Radar" 
+   to view interactive campus zone pins (Central Library, Auditorium, etc.).
+
+STEP 2: REPORT A MISPLACED ITEM (STUDENT VIEW)
+1. Click "Report Item" in the navigation bar (or go to http://localhost:5173/report).
+2. Ensure "Misplaced Something (Lost Report)" is highlighted.
+3. Enter Title: "Black Dell XPS 15 Laptop Sleeve"
+   -> Notice the instant AI auto-category and colour detection!
+4. Select Category: "Electronics" | Location: "Central Library".
+5. In Public Description: "Black padded sleeve with blue trim."
+6. In Confidential Verification Notes (Strictly Protected): 
+   "Contains a SanDisk 64GB flash drive in the side pocket."
+7. Click "Register Report with Intelligence Radar".
+
+STEP 3: VIEW AI HEURISTIC MATCH & EXPLANATION
+1. Navigate to "Dashboard" -> "Matches" (or http://localhost:5173/matches).
+2. The AI matching engine correlates your lost report with the found report 
+   in Central Library and gives a 92% Match Score.
+3. Click "Compare Details" / "View Listing & Submit Claim".
+
+STEP 4: SUBMIT CONFIDENTIAL OWNERSHIP CLAIM
+1. On the item detail page, click "Submit Ownership Claim".
+2. Enter your private verification evidence:
+   - Identifying marks: "Blue zipper trim with white scratch on corner."
+   - Contents/Wallpaper: "SanDisk flash drive in side pocket."
+3. Click "Submit Evidence" -> Sent securely to the staff review queue.
+
+STEP 5: MODERATOR REVIEW & QR PASS ISSUANCE
+1. Go to http://localhost:5173/login.
+2. Under "Demo Persona Quick-Select", click the "Moderator" button.
+3. Click "Moderation" in the navbar (http://localhost:5173/moderation).
+4. Review the claimant's confidential evidence.
+5. Click "Approve Claim & Issue Pass".
+
+STEP 6: CUSTODY DESK QR PASS HANDOVER
+1. Go to "Claims" (http://localhost:5173/claims) and click "View Recovery Pass".
+   -> A one-time, 24-hour cryptographic QR code appears!
+2. Copy the raw token string (or scan with a phone).
+3. Switch back to http://localhost:5173/moderation.
+4. In the "Custody Desk QR Pass Redemption" box, paste the token and click 
+   "Authenticate Handover".
+5. The pass is redeemed once, status updates to "Recovered", and the audit log records 
+   the verified handover!
+
+STEP 7: INSPECT ADMIN TELEMETRY & AUDIT TRAILS
+1. Go to http://localhost:5173/login and click "Admin".
+2. Click "Analytics" in the navbar (http://localhost:5173/admin/analytics).
+3. View the Recharts analytics (recovery rate, category distribution, location 
+   hotspots) and the real-time security audit events table!
+
+
+3. CONNECTING TO LIVE SUPABASE CLOUD
+--------------------------------------------------------------------------------
+When you are ready to connect to your live Supabase Cloud project:
+1. Create a free account at https://supabase.com and create a new project.
+2. Open the SQL Editor in Supabase and run:
+   - supabase/migrations/20261116000001_initial_schema.sql
+   - supabase/seed.sql
+   - supabase/storage_setup.sql
+3. Create client/.env:
+   VITE_SUPABASE_URL=https://your-project.supabase.co
+   VITE_SUPABASE_ANON_KEY=your-supabase-anon-key
+   VITE_API_BASE_URL=http://localhost:5000/api
+4. Create server/.env:
+   PORT=5000
+   NODE_ENV=development
+   APP_ORIGIN=http://localhost:5173
+   SUPABASE_URL=https://your-project.supabase.co
+   SUPABASE_ANON_KEY=your-supabase-anon-key
+   SUPABASE_SERVICE_ROLE_KEY=your-supabase-service-role-key
+   HANDOVER_TOKEN_SECRET=campus_recovery_secret_salt_2026
+
+
+4. CLOUD DEPLOYMENT (VERCEL & RENDER)
+--------------------------------------------------------------------------------
+To host the project live online:
+1. Frontend on Vercel:
+   - Connect repository to Vercel (https://vercel.com).
+   - Root directory: client
+   - Build Command: npm run build
+   - Output Directory: dist
+   - Set environment variables VITE_SUPABASE_URL, VITE_SUPABASE_ANON_KEY, and VITE_API_BASE_URL.
+2. Backend on Render or Railway:
+   - Connect repository as a Web Service.
+   - Root directory: server
+   - Build Command: npm install
+   - Start Command: npm start
+   - Set environment variables PORT, APP_ORIGIN, SUPABASE_URL, SUPABASE_ANON_KEY, SUPABASE_SERVICE_ROLE_KEY, HANDOVER_TOKEN_SECRET.
+
+
+5. SUBMISSION & VIVA PRESENTATION PREPARATION
+--------------------------------------------------------------------------------
+- Complete Project Report: Read report.txt or docs/PROJECT_REPORT.md.
+- Presentation Slides: Read docs/PPT_SLIDES.md for the 13 slide layouts and 
+  answers to typical examiner questions (why cloud, why matching is heuristic, 
+  how QR replay is prevented).
+================================================================================

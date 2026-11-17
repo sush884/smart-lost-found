@@ -1,0 +1,27 @@
+{
+  "name": "smart-lost-and-found-intelligence-system",
+  "version": "2.0.0",
+  "description": "Smart Lost & Found Intelligence System — Cloud-Based Campus Recovery Platform",
+  "private": true,
+  "scripts": {
+    "server:install": "cd server && npm install",
+    "server:dev": "cd server && npm run dev",
+    "server:start": "cd server && npm start",
+    "server:test": "cd server && npm test",
+    "client:install": "cd client && npm install",
+    "client:dev": "cd client && npm run dev",
+    "client:build": "cd client && npm run build",
+    "test": "cd server && npm test"
+  },
+  "keywords": [
+    "cloud-computing",
+    "lost-and-found",
+    "campus",
+    "supabase",
+    "threejs",
+    "react",
+    "nlp"
+  ],
+  "author": "Smart Lost & Found Intelligence Team",
+  "license": "MIT"
+}
